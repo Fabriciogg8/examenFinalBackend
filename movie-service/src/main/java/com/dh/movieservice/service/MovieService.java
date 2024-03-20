@@ -22,4 +22,11 @@ public class MovieService {
     public Movie save(Movie movie) {
         return movieRepository.save(movie);
     }
+
+    // Agregada para probar el circuitbraker
+    public List<Movie> findAllMovies(Boolean throwError){
+        if(throwError)
+            throw new RuntimeException();
+        return movieRepository.findAll();
+        }
 }

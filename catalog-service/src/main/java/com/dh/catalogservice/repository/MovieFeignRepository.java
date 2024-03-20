@@ -16,4 +16,8 @@ public interface MovieFeignRepository {
 
     @GetMapping("/greeting")
     String getGreeting();
+
+    @GetMapping("/api/v1/movies/findAll")
+    ResponseEntity<List<Movie>> findAllMovies(Boolean throwError);
+
 }
