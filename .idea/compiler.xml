@@ -11,6 +11,7 @@
         <module name="config-server" />
         <module name="movie-service" />
         <module name="eureka-server" />
+        <module name="serie-service" />
         <module name="catalog-service" />
       </profile>
     </annotationProcessing>
@@ -22,6 +23,7 @@
       <module name="config-server" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
       <module name="movie-service" options="-parameters" />
+      <module name="serie-service" options="-parameters" />
     </option>
   </component>
 </project>

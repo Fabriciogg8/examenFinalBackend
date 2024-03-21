@@ -18,11 +18,7 @@ public class GreetingController {
     private MovieFeignRepository movieFeignRepository;
     @Autowired
     private DiscoveryClient discoveryClient;
-//    @GetMapping("/greeting")
-//    public String greet() {
-//
-//        return movieFeignRepository.getGreeting();
-//    }
+
     @GetMapping("/greeting")
     public String greet() {
         // Llama al servicio de saludo usando Feign
