@@ -1,51 +1,7 @@
-server:
-  port: 8087
 spring:
   application:
     name: catalog-service
-  cloud:
-    config:
-      enabled: false
+  config:
+    import: optional:configserver:http://localhost:8888
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka
-  instance:
-    prefer-ip-address: true
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
-  health:
-    circuitbreakers:
-      enabled: true
-  endpoint:
-    health:
-      show-details: always
 
-resilience4j:
-  circuitbreaker:
-    instances:
-      movie-service:
-        slidingWindowType: COUNT_BASED
-        slidingWindowSize: 5
-        failureRateThreshold: 50
-        # Tiempo de espera en estado abierto (en milisegundos).
-        # Después de que el circuit breaker se abra debido a un exceso de fallas,
-        # permanecerá en este estado durante este período antes de intentar cambiar al estado semiabierto.
-        waitDurationInOpenState: 15000
-        # Número permitido de llamadas en la mitad del estado abierto.
-        # Después de que el circuit breaker haya estado abierto durante la mitad del tiempo
-        # especificado en waitDurationInOpenState, se permitirán estas llamadas
-        # para verificar si el servicio se ha recuperado.
-        permittedNumberOfCallsInHalfOpenState: 3
-        #  Indica si se debe registrar un indicador de salud
-        # en el contexto de Spring Boot para el circuit breaker.
-        registerHealthIndicator: true
-        #  Indica si se permite que el indicador de salud falle. Si está configurado en true,
-        #  el circuit breaker se abrirá si el indicador de salud falla.
-        allowHealthIndicatorToFail: false
-        # Indica si se permite la transición automática del estado abierto al estado semiabierto.
-        automaticTransitionFromOpenToHalfOpenEnabled: true

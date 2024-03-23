@@ -1,6 +1,5 @@
 server:
-  port: ${PORT:8090}
-
+  port: 8888
 spring:
   application:
     name: config-server
@@ -9,5 +8,5 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/Fabriciogg8/configuracionesCatalog-Service
+          uri: https://github.com/Fabriciogg8/configuracionesDH.git
 

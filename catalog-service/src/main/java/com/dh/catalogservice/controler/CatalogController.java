@@ -33,7 +33,7 @@ public class CatalogController {
     }
 
     @GetMapping("/movies")
-    public ResponseEntity<List<Movie>> getMovies() {
+    public List<Movie> getMovies() {
         return movieService.findAllMovies();
     }
 }
