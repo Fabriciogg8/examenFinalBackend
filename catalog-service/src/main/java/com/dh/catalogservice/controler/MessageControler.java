@@ -13,14 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/catalog")
 public class MessageControler {
 
-//    @Value("${message}")
+    @Value("${custom.message}")
     private String message;
-    @Autowired
-    private MovieService movieService;
+
     @GetMapping("/message")
     public String getMessage() {
-
-        return message = "Hola"+movieService.findAllMovies();
-
+        return message = message;
     }
 }
