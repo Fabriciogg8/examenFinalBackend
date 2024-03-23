@@ -1,14 +1,14 @@
-server:
-  port: 8999
 spring:
   application:
     name: api-gateway
-  cloud:
-    gateway:
-      mvc:
-        routes:
-          - id: catalogServiceRoute
-            uri: lb://catalog-service/
-            predicates:
-              - Path=/catalog/**
+  config:
+    import: optional:configserver:http://localhost:8888
+#  cloud:
+#    gateway:
+#      mvc:
+#        routes:
+#          - id: catalogServiceRoute
+#            uri: lb://catalog-service/
+#            predicates:
+#              - Path=/catalog/**
 

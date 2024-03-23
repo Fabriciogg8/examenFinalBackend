@@ -5,6 +5,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -18,6 +19,6 @@ public interface MovieFeignRepository {
     String getGreeting();
 
     @GetMapping("/api/v1/movies/findAll")
-    ResponseEntity<List<Movie>> findAllMovies(Boolean throwError);
+    List<Movie> findAllMovies(@RequestParam Boolean throwError);
 
 }
