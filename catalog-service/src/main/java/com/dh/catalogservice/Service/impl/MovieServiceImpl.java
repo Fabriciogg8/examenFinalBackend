@@ -36,8 +36,6 @@ public class MovieServiceImpl implements MovieService {
         return new ArrayList<>();
     }
 
-//    private ResponseEntity<List<Movie>> getMoviesFallbackMethod(Throwable t) {
-//        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ArrayList<>());
-//    }
+
 }
 
