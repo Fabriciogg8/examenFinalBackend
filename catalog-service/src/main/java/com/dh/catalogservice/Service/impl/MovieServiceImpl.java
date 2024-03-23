@@ -18,7 +18,6 @@ import java.util.List;
 @Service
 public class MovieServiceImpl implements MovieService {
 
-
     private MovieFeignRepository movieFeignRepository;
 
     @Autowired
