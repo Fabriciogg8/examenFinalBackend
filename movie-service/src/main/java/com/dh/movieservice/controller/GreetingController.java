@@ -1,5 +1,6 @@
 package com.dh.movieservice.controller;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,13 +13,11 @@ import java.util.Random;
 @RestController
 public class GreetingController {
 
+    @Value("${server.port}")
+    private int serverPort;
+
     @GetMapping("/greeting")
-    public String greet() {
-
-        List<String> greetings = Arrays.asList("Hi there", "Greetings", "Salutations");
-        Random rand = new Random();
-
-        int randomNum = rand.nextInt(greetings.size());
-        return greetings.get(randomNum);
+    public String getGreeting() {
+        return "Puerto del servidor: " + serverPort;
     }
 }

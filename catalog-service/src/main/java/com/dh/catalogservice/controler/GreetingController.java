@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RefreshScope
 @RestController
 @RequestMapping("/catalog")
@@ -16,18 +18,9 @@ public class GreetingController {
 
     @Autowired
     private MovieFeignRepository movieFeignRepository;
-    @Autowired
-    private DiscoveryClient discoveryClient;
 
     @GetMapping("/greeting")
-    public String greet() {
-        // Llama al servicio de saludo usando Feign
-        String greeting = movieFeignRepository.getGreeting();
-
-        // Obtiene información sobre la instancia del servicio movie-service
-        ServiceInstance instance = discoveryClient.getInstances("movie-service").get(0);
-        String instanceInfo = "Instance: " + instance.getHost() + ":" + instance.getPort();
-
-        return greeting + " (" + instanceInfo + ")";
+    public String getGreeting() {
+        return movieFeignRepository.getGreeting();
     }
 }
