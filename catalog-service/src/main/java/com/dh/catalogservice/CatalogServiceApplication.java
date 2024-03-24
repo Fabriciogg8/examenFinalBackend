@@ -10,7 +10,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
-@LoadBalancerClient(value="movie-service", configuration = CustomLoadBalancer.class)
+@LoadBalancerClient(value = "serie-service", configuration = CustomLoadBalancer.class)
 public class CatalogServiceApplication {
 
 	public static void main(String[] args) {
