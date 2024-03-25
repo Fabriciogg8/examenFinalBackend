@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
+
 @RefreshScope
 @RestController
 @RequestMapping("/catalog")
@@ -25,15 +27,17 @@ public class CatalogController {
 
     @Autowired
     private MovieService movieService;
-
+    private static java.util.logging.Logger log = Logger.getLogger(CatalogController.class.getName());
     @GetMapping("/movie/{genre}")
     public ResponseEntity<List<Movie>> getMoviesByGenre(@PathVariable String genre) {
+        log.info("Se visualiza correctamente la pelicula");
         ResponseEntity<List<Movie>> response = movieFeignRepository.getMovieByGenre(genre);
         return ResponseEntity.status(response.getStatusCode()).body(response.getBody());
     }
 
     @GetMapping("/movies")
     public List<Movie> getMovies() {
+        log.info("Se visualiza correctamente la pelicula");
         return movieService.findAllMovies();
     }
 }
