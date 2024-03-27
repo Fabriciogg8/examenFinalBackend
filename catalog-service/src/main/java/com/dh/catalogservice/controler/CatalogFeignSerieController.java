@@ -1,7 +1,7 @@
 package com.dh.catalogservice.controler;
 
 import com.dh.catalogservice.model.Serie;
-import com.dh.catalogservice.repository.SerieFeignRepository;
+import com.dh.catalogservice.feignClient.SerieFeignRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
