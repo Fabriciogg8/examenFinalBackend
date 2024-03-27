@@ -11,6 +11,4 @@ public interface SerieService {
 
     String createSerie(Serie serie);
 
-
-    void save(Serie serie);
 }

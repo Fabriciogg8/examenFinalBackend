@@ -2,9 +2,7 @@ package com.dh.catalogservice.controler;
 
 import com.dh.catalogservice.Service.MovieService;
 import com.dh.catalogservice.model.Movie;
-import com.dh.catalogservice.repository.MovieFeignRepository;
-import io.github.resilience4j.circuitbreaker.CallNotPermittedException;
-import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import com.dh.catalogservice.feignClient.MovieFeignRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 

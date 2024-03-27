@@ -2,7 +2,7 @@ package com.dh.catalogservice.Service.impl;
 
 import com.dh.catalogservice.Service.MovieService;
 import com.dh.catalogservice.model.Movie;
-import com.dh.catalogservice.repository.MovieFeignRepository;
+import com.dh.catalogservice.feignClient.MovieFeignRepository;
 import io.github.resilience4j.circuitbreaker.CallNotPermittedException;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import lombok.extern.slf4j.Slf4j;

@@ -75,13 +75,11 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-amqp</artifactId>
-			<version>3.2.3</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.springframework.amqp/spring-rabbit-test -->
 		<dependency>
 			<groupId>org.springframework.amqp</groupId>
 			<artifactId>spring-rabbit-test</artifactId>
-			<version>3.1.2</version>
 			<scope>test</scope>
 		</dependency>
 

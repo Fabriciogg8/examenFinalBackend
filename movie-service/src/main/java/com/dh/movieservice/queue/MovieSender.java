@@ -1,7 +1,6 @@
-package com.dh.serieservice.queue;
+package com.dh.movieservice.queue;
 
-import com.dh.serieservice.model.Serie;
-
+import com.dh.movieservice.model.Movie;
 import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
@@ -12,13 +11,13 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 @EnableRabbit
-public class SerieSender {
+public class MovieSender {
     @Autowired
     private final RabbitTemplate rabbitTemplate;
 
     @Autowired
     private Queue queue;
-    public void send(Serie serie){
-        this.rabbitTemplate.convertAndSend(this.queue.getName(), serie);
+    public void send(Movie movie){
+        this.rabbitTemplate.convertAndSend(this.queue.getName(), movie);
     }
 }

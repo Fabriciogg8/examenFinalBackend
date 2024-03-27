@@ -1,4 +1,4 @@
-package com.dh.catalogservice.repository;
+package com.dh.catalogservice.feignClient;
 
 import com.dh.catalogservice.model.Movie;
 import org.springframework.cloud.openfeign.FeignClient;

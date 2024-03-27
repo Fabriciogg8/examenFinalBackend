@@ -1,8 +1,7 @@
 package com.dh.catalogservice.controler;
 
 import com.dh.catalogservice.model.Serie;
-import com.dh.catalogservice.queue.SerieListener;
-import com.dh.catalogservice.repository.SerieFeignRepository;
+import com.dh.catalogservice.feignClient.SerieFeignRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
@@ -18,12 +17,6 @@ public class CatalogFeignSerieController {
     @Autowired
     private SerieFeignRepository serieFeignRepository;
 
-    private final SerieListener listener;
-
-    public CatalogFeignSerieController(SerieListener listener) {
-        this.listener = listener;
-    }
-
     @GetMapping("/series")
     public List<Serie> getAllSeries() {
         return serieFeignRepository.getAllSeries();
@@ -37,7 +30,6 @@ public class CatalogFeignSerieController {
     @PostMapping("/series")
     @ResponseStatus(HttpStatus.CREATED)
     public String createSerie(@RequestBody Serie serie) {
-        listener.receive(serie);
         return serieFeignRepository.createSerie(serie);
     }
 

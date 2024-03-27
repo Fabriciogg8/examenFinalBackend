@@ -4,6 +4,7 @@ import com.dh.serieservice.model.Serie;
 
 import com.dh.serieservice.queue.SerieSender;
 import com.dh.serieservice.service.SerieService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,17 +15,13 @@ import java.util.List;
  */
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/api/v1/series")
 public class SerieController {
 
     private final SerieService serieService;
 
     private final SerieSender serieSender;
-
-    public SerieController(SerieService serieService, SerieSender serieSender) {
-        this.serieService = serieService;
-        this.serieSender = serieSender;
-    }
 
     @GetMapping
     public List<Serie> getAll() {
