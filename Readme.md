@@ -26,10 +26,24 @@ El circuit breaker se implementó en los microservicios de serie y película por
 ## Endpoints
 A continuación se detallan los endpoints disponibles en este servicio de catálogo:
 
-- /api/v1/catalog/movies/{genre}: Obtiene una lista de películas por género.
-- /api/v1/catalog/series/{genre}: Obtiene una lista de series por género.
-- /api/v1/catalog/movies/save: Guarda una nueva película.
-- /api/v1/catalog/series/save: Guarda una nueva serie.
+### API Gateway
+- Configurado en el puerto 8999
+
+#### Catalog Feign Movie Controller
+GET- /catalog/movie/{genre}: Obtiene una lista de películas por género.
+GET- /catalog/movies: Obtiene todas las películas
+POST- /catalog/movie: Guardar una pelicula
+
+#### Catalog Feign Serie Controller
+GET- /catalog/series/{genre}: Obtiene una lista de serie por género.
+GET- /catalog/series: Obtiene todas las serie
+POST- /catalog/series: Guardar una serie
+
+#### Catalog Controller
+GET- /api/v1/catalog/movies/{genre}: Obtiene una lista de películas por género.
+GET- /api/v1/catalog/series/{genre}: Obtiene una lista de series por género.
+POST- /api/v1/catalog/movies: Guarda una nueva película.
+POST- /api/v1/catalog/series: Guarda una nueva serie.
 
 ## Uso
 Para utilizar este servicio de catálogo, simplemente envía solicitudes HTTP a los endpoints correspondientes.
