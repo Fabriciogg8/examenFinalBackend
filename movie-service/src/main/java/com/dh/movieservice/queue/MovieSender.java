@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-@EnableRabbit
 public class MovieSender {
     @Autowired
     private final RabbitTemplate rabbitTemplate;
