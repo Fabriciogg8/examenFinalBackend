@@ -5,6 +5,7 @@ import com.dh.catalogservice.feignClient.SerieFeignRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,13 +24,13 @@ public class CatalogFeignSerieController {
     }
 
     @GetMapping("/series/{genre}")
-    public List<Serie> getSeriesByGenre(@PathVariable String genre) {
+    public ResponseEntity<List<Serie>> getSeriesByGenre(@PathVariable String genre) {
         return serieFeignRepository.getSeriesByGenre(genre);
     }
 
     @PostMapping("/series")
     @ResponseStatus(HttpStatus.CREATED)
-    public String createSerie(@RequestBody Serie serie) {
+    public ResponseEntity<String> createSerie(@RequestBody Serie serie) {
         return serieFeignRepository.createSerie(serie);
     }
 

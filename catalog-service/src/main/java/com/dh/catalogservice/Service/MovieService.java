@@ -7,4 +7,6 @@ import java.util.List;
 public interface MovieService {
 
     List<Movie> findAllMovies();
+
+    List<Movie> getMoviesByGenre(String genre, Boolean throwError);
 }

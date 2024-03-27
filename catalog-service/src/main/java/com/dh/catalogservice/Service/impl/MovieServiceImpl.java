@@ -30,6 +30,11 @@ public class MovieServiceImpl implements MovieService {
         return movieFeignRepository.findAllMovies(true);
     }
 
+    @Override
+    public List<Movie> getMoviesByGenre(String genre, Boolean throwError) {
+        return null;
+    }
+
     private List<Movie> getMoviesFallbackMethod(CallNotPermittedException e) {
         return new ArrayList<>();
     }

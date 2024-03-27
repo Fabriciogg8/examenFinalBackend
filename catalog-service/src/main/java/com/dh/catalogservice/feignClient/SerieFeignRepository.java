@@ -3,6 +3,7 @@ package com.dh.catalogservice.feignClient;
 import com.dh.catalogservice.model.Serie;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,9 +15,8 @@ public interface SerieFeignRepository {
     List<Serie> getAllSeries();
 
     @GetMapping("/api/v1/series/{genre}")
-    List<Serie> getSeriesByGenre(@PathVariable String genre);
+    ResponseEntity<List<Serie>> getSeriesByGenre(@PathVariable String genre);
 
-    @PostMapping("/api/v1/series")
-    @ResponseStatus(HttpStatus.CREATED)
-    String createSerie(@RequestBody Serie serie);
+    @PostMapping("/api/v1/series/save")
+    ResponseEntity<String> createSerie(@RequestBody Serie serie); // Devuelve un ResponseEntity<String>
 }
