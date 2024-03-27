@@ -20,6 +20,6 @@ public interface SerieFeignRepository {
     ResponseEntity<List<Serie>> getSeriesByGenre(@PathVariable String genre);
 
     // Método para crear una nueva serie y devolver una respuesta como String
-    @PostMapping("/api/v1/series/save")
+    @PostMapping("/api/v1/series")
     ResponseEntity<String> createSerie(@RequestBody Serie serie); // Devuelve un ResponseEntity<String>
 }

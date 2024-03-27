@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-@EnableRabbit
 public class SerieSender {
     @Autowired
     private final RabbitTemplate rabbitTemplate;
