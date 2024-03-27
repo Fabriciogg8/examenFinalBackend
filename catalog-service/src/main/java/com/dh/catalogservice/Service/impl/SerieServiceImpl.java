@@ -12,20 +12,21 @@ import lombok.RequiredArgsConstructor;
 import java.util.Collections;
 import java.util.List;
 
-
 @Slf4j // Anotación para agregar un logger a la clase
 @Service
 public class SerieServiceImpl implements SerieService {
 
     private final SerieFeignRepository serieFeignRepository;
 
+    // Constructor que inyecta el SerieFeignRepository
     public SerieServiceImpl(SerieFeignRepository serieFeignRepository) {
         this.serieFeignRepository = serieFeignRepository;
     }
 
+    // Método para obtener todas las series
     @Override
     public List<Serie> getAllSeries() {
-        return null;
+        return null; // En este método podrías implementar la lógica para obtener todas las series
     }
 
     // Método para obtener series por género, protegido por un circuit breaker
@@ -33,11 +34,11 @@ public class SerieServiceImpl implements SerieService {
     @Override
     public List<Serie> getSeriesByGenre(String genre) {
         log.info("Llamando al servicio de series para obtener series por género: {}", genre); // Registro de información
-        ResponseEntity<List<Serie>> response = serieFeignRepository.getSeriesByGenre(genre);
+        ResponseEntity<List<Serie>> response = serieFeignRepository.getSeriesByGenre(genre); // Llamada al Feign client para obtener series por género
         if (response.getStatusCode().is2xxSuccessful()) {
-            return response.getBody();
+            return response.getBody(); // Devuelve las series obtenidas si la solicitud fue exitosa
         } else {
-            throw new RuntimeException("Error al obtener series por género: " + response.getStatusCode());
+            throw new RuntimeException("Error al obtener series por género: " + response.getStatusCode()); // Lanza una excepción si la solicitud falla
         }
     }
 
@@ -46,11 +47,11 @@ public class SerieServiceImpl implements SerieService {
     @Override
     public String createSerie(Serie serie) {
         log.info("Creando nueva serie: {}", serie); // Registro de información
-        ResponseEntity<String> response = serieFeignRepository.createSerie(serie);
+        ResponseEntity<String> response = serieFeignRepository.createSerie(serie); // Llamada al Feign client para crear una nueva serie
         if (response.getStatusCode().is2xxSuccessful()) {
-            return response.getBody();
+            return response.getBody(); // Devuelve el ID de la nueva serie si la creación fue exitosa
         } else {
-            throw new RuntimeException("Error al crear una nueva serie: " + response.getStatusCode());
+            throw new RuntimeException("Error al crear una nueva serie: " + response.getStatusCode()); // Lanza una excepción si la creación falla
         }
     }
 

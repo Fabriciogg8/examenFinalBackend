@@ -21,6 +21,7 @@ public class CatalogFeignMovieController {
 
     private static java.util.logging.Logger log = Logger.getLogger(CatalogFeignMovieController.class.getName());
 
+    // Método para obtener películas por género
     @GetMapping("/movie/{genre}")
     public ResponseEntity<List<Movie>> getMoviesByGenre(@PathVariable String genre) {
         log.info("Se visualiza correctamente la película");
@@ -28,12 +29,14 @@ public class CatalogFeignMovieController {
         return ResponseEntity.status(response.getStatusCode()).body(response.getBody());
     }
 
+    // Método para obtener todas las películas
     @GetMapping("/movies")
     public List<Movie> getMovies(@RequestParam(required = false) Boolean throwError) {
         log.info("Se visualiza correctamente la película");
         return movieFeignRepository.findAllMovies(throwError);
     }
 
+    // Método para guardar una película
     @PostMapping("/movie") // Nuevo endpoint para guardar una película
     public ResponseEntity<Movie> saveMovie(@RequestBody Movie movie) {
         ResponseEntity<Movie> response = movieFeignRepository.saveMovie(movie);
